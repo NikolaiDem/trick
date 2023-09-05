@@ -15,4 +15,16 @@ public class UserRepositoryImpl implements UserRepository {
     public User createUser(String userName) {
         return null;
     }
+
+
+    @Override
+    public User updateUser(String userName) {
+        return null;
+    }
+
+
+    @Override
+    public User findByCountry(String country) {
+        return null;
+    }
 }
