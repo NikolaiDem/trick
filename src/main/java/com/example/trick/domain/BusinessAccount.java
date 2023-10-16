@@ -4,7 +4,6 @@ public class BusinessAccount extends BaseAccount {
 
     protected int vipSum = 0;
 
-    //equals нарушает правило симметрии
     @Override
     public boolean equals(Object object) {
         if (object instanceof BusinessAccount) {

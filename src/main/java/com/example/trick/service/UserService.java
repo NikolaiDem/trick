@@ -8,11 +8,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    @Lazy //ее работает, потому что userRepository сам Lazy не является
+    @Lazy
     private UserRepository userRepository;
 
     public void updateUser(User user) {
-
+        if (user.getName().isEmpty()) {
+            throw new IllegalArgumentException("Name must not be empty");
+        }
     }
 
 }
