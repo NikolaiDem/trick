@@ -7,9 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 
-    //кольцевая зависимость
     @Autowired
-    private AccountRepository accountRepository; //Autowired над полем неправильно
+    private AccountRepository accountRepository;
 
     @Override
     public User createUser(String userName) {

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class AccountRepositoryImpl implements AccountRepository {
 
-    //кольцевая зависимость
     @Autowired
     private UserRepository userRepository;
 

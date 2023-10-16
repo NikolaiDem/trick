@@ -2,40 +2,38 @@ package com.example.trick.controller;
 
 import com.example.trick.dao.UserRepository;
 import com.example.trick.domain.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController("/user")
+@Slf4j
 public class UserController {
 
-    @Autowired //todo инжект через поле
+    @Autowired
     private UserRepository userRepository;
 
-    //todo использовавание метода Get для создания пользователя
-    @GetMapping("/user/{userName}") //неправильное именование эндпоинта
+    @GetMapping("/user/{userName}")
     public User getUser(@PathVariable("userName") String userName) {
+        log.debug("PUT user/{userName}");
         return userRepository.createUser(userName);
     }
 
-
-    /*todo использование метода POST для обновления имени пользователя */
-    @PostMapping("/user") //неправильное именование эндпоинта
+    @PostMapping("/user")
     public User postUser(String userName) {
+        log.debug("POST user");
         return userRepository.updateUser(userName);
     }
 
-
-    /*todo ошибки:
-    *  использование pathVariable вместо тела?
-    *  метод PUT - реализован не идемпонтентно? */
-    @PutMapping("/user/{userName}") //неправильное именование эндпоинта
+    @PutMapping("/user/{userName}")
     public User putUser(@PathVariable String userName) {
         return userRepository.createUser(userName);
     }
 
-    /*todo для страны лучше использовать параметр запроса */
-    @GetMapping("/getUser/country/{country}") //неправильное именование эндпоинта
+
+    @GetMapping("/getUser/country/{country}")
     public User findUsersFromCountry(@PathVariable String country) {
+        log.debug("GET getUser/country/{country}");
         return userRepository.findByCountry(country);
     }
 }
